@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net481</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Steamworks.NET">
+      <HintPath>..\Steamworks.NET\Windows-x64\Steamworks.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

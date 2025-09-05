@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net481</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\fa-solid-900.ttf" />
+    <EmbeddedResource Include="Resources\fa-solid-900.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GridSteamworksCommon\GridSteamworksCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="GroupDisplayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="LobbyDisplayExControl.cs" />
+    <Compile Update="LobbyMgmtControl.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Steamworks.NET">
+      <HintPath>..\Steamworks.NET\Windows-x64\Steamworks.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
