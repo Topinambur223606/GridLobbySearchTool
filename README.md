@@ -5,7 +5,7 @@ So you can see everything without in-game search.
 
 No need for setup or authorization of any kind (after it's built): start it with Steam running and tool should work.
 ### Features
-- Lobby/playlist/group listing, online counter - rough estimation calculated as sum of all groups player count;
+- Lobby/playlist/group listing, online counter - rough estimation calculated as sum of all groups player count, click on lobby owner nickname to open their profile;
 - If "personal" lobby listing is enabled and you create one, tool will make sounds when player count changes in it. With this, you can alt-tab and get notified if anyone joins;
 - Setting properties on lobby: you may overwrite many properties which people see in search results - only visually, it won't affect gameplay. Disable updates on personal lobby control, set desired values and enable "set values" mode for that. It is possible to mimick a playlist lobby or mark it as something non-existent (like indycar derby), not sure if it will work well though.
 ### Limitations

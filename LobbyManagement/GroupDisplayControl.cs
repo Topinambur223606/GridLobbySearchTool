@@ -1,6 +1,7 @@
 using GridSteamworksCommon;
 using GridSteamworksCommon.Enums;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace LobbyManagement
 {
     public partial class GroupDisplayControl : UserControl
     {
+        public ulong OwnerId { get; private set; }
+
         public ulong LobbyId { get; private set; }
 
         public bool IsSettingsControl { get; set; }
@@ -39,9 +42,23 @@ namespace LobbyManagement
                 return;
             }
             SetNumUpDownWritable(memberLimitNumericUpDown, writable);
-            usernameTextBox.ReadOnly = !writable;
+            if (usernameTextBox.ReadOnly = !writable)
+            {
+                usernameTextBox.Cursor = Cursors.Hand;
+                usernameTextBox.Click += UsernameTextBox_Click;
+            }
+            else
+            {
+                usernameTextBox.Cursor = Cursors.Default;
+                usernameTextBox.Click -= UsernameTextBox_Click;
+            }
             SetComboBoxWritable(playlistTypeComboBox, writable);
             this.writable = writable;
+        }
+
+        private void UsernameTextBox_Click(object sender, EventArgs e)
+        {
+            Process.Start($"steam://url/SteamIDPage/{OwnerId}");
         }
 
         protected void SetComboBoxWritable(ComboBox cb, bool writable)
@@ -112,6 +129,7 @@ namespace LobbyManagement
         public virtual void UpdateLobbyInfo(LobbyInfo lobbyInfo)
         {
             LobbyId = lobbyInfo.Id;
+            OwnerId = lobbyInfo.OwnerId;
             if (!IsSettingsControl && Program.UserId == lobbyInfo.OwnerId)
             {
                 playlistTypeComboBox.Visible = false;
